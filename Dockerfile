@@ -7,12 +7,12 @@ COPY package*.json ./
 COPY . .
 
 RUN npm i
-RUN npx nx build ${host} --prod --output-path ./dist
+RUN npx nx build ${app} --prod
 
 FROM nginx:1.24.0-perl
 ARG host
 
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
-COPY --from=build /dist .
+COPY --from=build /app/dist/apps/${app} .
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
