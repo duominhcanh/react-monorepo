@@ -32,7 +32,7 @@ jobs:
       run: npm i
 
     - name: Run tests with coverage
-    - run: npx nx test react-monorepo --coverage
+      run: npx nx test react-monorepo --coverage
 
     - name: Production build
       run: npx nx build react-monorepo --prod
