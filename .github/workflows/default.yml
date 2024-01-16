@@ -50,7 +50,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
       
       - name: Build image with Buildx
-        run: docker buildx build --build-arg host=react-monorepo . --platform linux/amd64,linux/arm64 --push=false
+        run: docker buildx build --build-arg app=react-monorepo . --platform linux/amd64,linux/arm64 --push=false
 
       
 
