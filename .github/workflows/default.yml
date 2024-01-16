@@ -45,12 +45,12 @@ jobs:
       run: npx nx test react-monorepo --coverage
 
     - name: Production build
-      run: npx nx build react-monorepo --prod
+      run: npx nx build react-monorepo --prod --output-path ./out
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: ./dist/apps
+        path: ./out
 
   deploy:
     environment:
